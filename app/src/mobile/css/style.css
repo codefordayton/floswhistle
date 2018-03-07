@@ -1,0 +1,90 @@
+body {
+  font-family: "Courier New", Courier, monospace;  
+}
+
+.main-container {
+  margin: 5% auto;
+  width: 300px;
+  text-align: center;
+  font-weight: bold;
+  border: black solid 2px;
+  padding: 20px 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;  
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 4px 4px #333;
+  -moz-box-shadow: 4px 4px 4px #333;  
+  box-shadow: 4px 4px 4px #333;  
+}
+
+.main-title {
+  font-size: 40px;
+  color: blue;
+}
+
+.sub-container {
+  width: 200px;
+  margin: 0px auto;
+}
+
+.sub-heading {
+  font-size: 16px;
+  color: black;
+  text-align: left;
+  margin: 10px 0px; 
+}
+
+.sub-heading:before {
+    content:"• ";
+}
+
+.row {
+  margin: 50px auto;
+}
+
+.zip-heading {
+  font-size: 26px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.zip-text {
+  text-size: 20px;
+  text-align: center;
+  height: 30px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;  
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 4px 4px #333;
+  -moz-box-shadow: 4px 4px 4px #333;  
+  box-shadow: 4px 4px 4px #333;
+  font-size: 20px;
+  border: black solid 2px;
+}
+
+#reportButton {
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+  border: red solid 2px;
+  padding: 10px 20px;
+  width: 100px;
+  margin: 0px auto;
+  cursor: pointer;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;  
+  border-radius: 10px;
+  -webkit-box-shadow: 8px 8px 10px #333;
+  -moz-box-shadow: 8px 8px 10px #333;  
+  box-shadow: 4px 4px 4px #333;  
+}
+
+#reportButton:hover {
+  color: blue;
+  border: blue solid 2px;
+}
+
+#reportButton:active {
+  transform: translate(0px, 3px);
+  box-shadow: none;
+}
