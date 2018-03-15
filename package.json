@@ -9,7 +9,6 @@
     "server:dev": "react-scripts start",
     "prebuild": "npm-run-all sass",
     "build": "react-scripts build",
-    "postbuild": "cp -R ./build/* ../www",
     "test": "react-scripts test --env=jsdom",
     "copyfa": "mkdir -p public/fonts && cp -R node_modules/font-awesome/fonts/* public/fonts",
     "presass": "npm run copyfa",
