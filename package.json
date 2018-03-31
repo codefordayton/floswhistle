@@ -21,6 +21,7 @@
   "dependencies": {
     "autoprefixer": "^8.0.0",
     "copyfiles": "^1.2.0",
+    "d3-scale": "^2.0.0",
     "font-awesome": "^4.7.0",
     "node-sass": "^4.7.2",
     "nodemon": "^1.15.1",
@@ -30,6 +31,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.0"
+    "react-scripts": "1.1.0",
+    "react-simple-maps": "^0.12.0",
+    "recompose": "^0.26.0"
   }
 }
