@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:js": "react-scripts start",
+    "start:js": "react-app-rewired start",
     "start": "npm-run-all -p watch:sass start:js",
     "server:dev": "react-scripts start",
     "prebuild": "npm-run-all sass",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
     "copyfa": "mkdir -p public/fonts && cp -R node_modules/font-awesome/fonts/* public/fonts",
     "presass": "npm run copyfa",
     "sass": "node-sass --source-map true --include-path src --include-path node_modules src/index.scss public/styles/bundle.css",
@@ -34,5 +34,8 @@
     "react-scripts": "1.1.0",
     "react-simple-maps": "^0.12.0",
     "recompose": "^0.26.0"
+  },
+  "devDependencies": {
+    "react-app-rewired": "^1.5.0"
   }
 }
