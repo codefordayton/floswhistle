@@ -24,6 +24,8 @@
     "copyfiles": "^1.2.0",
     "d3-scale": "^2.0.0",
     "font-awesome": "^4.7.0",
+    "immutable": "^3.8.2",
+    "lodash": "^4.17.5",
     "node-sass": "^4.7.2",
     "nodemon": "^1.15.1",
     "normalize.css": "^8.0.0",
