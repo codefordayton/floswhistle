@@ -1,8 +1,7 @@
 import React from 'react';
-import css from './styles.css';
 
 const MapPage = () => (
-  <div className={css.test}>
+  <div className="test">
     hello
   </div>
 );
