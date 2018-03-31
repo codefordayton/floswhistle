@@ -1,9 +1,4 @@
-import React from 'react';
+import ReactSimpleMap from 'shared/components/ReactSimpleMap';
+import ReactMapGl from 'shared/components/ReactMapGl';
 
-const MapPage = () => (
-  <div className="test">
-    hello
-  </div>
-);
-
-export default MapPage;
+export default ReactMapGl;
