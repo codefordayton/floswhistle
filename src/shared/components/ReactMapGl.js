@@ -5,11 +5,11 @@ class ReactMapGl extends Component {
 
   state = {
     viewport: {
-      width: 400,
+      width: 600,
       height: 400,
-      latitude: 37.7577,
-      longitude: -122.4376,
-      zoom: 8
+      latitude: 38,
+      longitude: -99,
+      zoom: 3,
     }
   };
 
