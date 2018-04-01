@@ -6,30 +6,26 @@ import { defaultMapStyle, dataLayer } from './map-style';
 
 const MAPBOX_TOKEN = 'pk.eyJ1Ijoia3loeWNvIiwiYSI6ImNqZmFjNTB3NzJpb2EyeHA0dmtlM2lyc3AifQ.kpFhZDngym9schJW_E9gBg'; // Set your mapbox token here
 
-// data.features = data.features.map(feature => ({
-//   ...feature,
-//   percentile: Math.floor(Math.random() * 10),
-// }))
-console.info('omg data', data.features);
-
-const mapStyle = defaultMapStyle
-  // Add geojson source to map
-  .setIn(['sources', 'geocity'], fromJS({type: 'geojson', data}))
-  // Add point layer to map
-  .set('layers', defaultMapStyle.get('layers').push(dataLayer));
-
-console.info('omg geojson', mapStyle.toJS());
+data.features = data.features.map(feature => ({
+  ...feature,
+  properties: {
+    ...feature.properties,
+    percentile: Math.floor(Math.random() * 10),
+  }
+}))
 
 class ReactMapGl extends Component {
 
   state = {
+    mapStyle: defaultMapStyle,
+    data,
     viewport: {
-      mapStyle: defaultMapStyle,
-      data,
       width: 600,
       height: 400,
       latitude: 38,
       longitude: -99,
+      bearing: 0,
+      pitch: 0,
       zoom: 3,
     }
   };
@@ -45,16 +41,14 @@ class ReactMapGl extends Component {
 
   _loadData = () => {
     const mapStyle = defaultMapStyle
-    // Add geojson source to map
-      .setIn(['sources', 'geocity'], fromJS({type: 'geojson', data}))
-    // Add point layer to map
+      // Add geojson source to map
+      .setIn(['sources', 'incomeByState'], fromJS({type: 'geojson', data}))
+      // Add point layer to map
       .set('layers', defaultMapStyle.get('layers').push(dataLayer));
 
-    console.info(mapStyle.toJS());
+    console.info('omg loadData', mapStyle.toJS());
 
-    this.setState({
-      mapStyle,
-    });
+    this.setState({data, mapStyle});
   }
 
   _resize = () => {
@@ -71,7 +65,9 @@ class ReactMapGl extends Component {
     return (
       <ReactMapGL
         {...this.state.viewport}
+        mapStyle={this.state.mapStyle}
         mapboxApiAccessToken={MAPBOX_TOKEN}
+        onLoad={() => this._loadData(data)}
         onViewportChange={(viewport) => this.setState({viewport})}
       />
     );

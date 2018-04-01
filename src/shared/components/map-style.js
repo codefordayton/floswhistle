@@ -4,24 +4,22 @@ import MAP_STYLE from './map-style.json';
 // For more information on data-driven styles, see https://www.mapbox.com/help/gl-dds-ref/
 export const dataLayer = fromJS({
   id: 'data',
-  source: 'geocity',
+  source: 'incomeByState',
   type: 'fill',
   interactive: true,
   paint: {
     'fill-color': {
       property: 'percentile',
       stops: [
-        [0, '#3288bd'],
-        [1, '#66c2a5'],
-        [2, '#abdda4'],
-        [3, '#e6f598'],
-        [4, '#ffffbf'],
-        [5, '#fee08b'],
-        [6, '#fdae61'],
-        [7, '#f46d43'],
-        [8, '#d53e4f'],
-        [9, '#d53e4f'],
-        [10, '#3288bd'],
+        [0, '#FFFFFF'],
+        [1, '#e6edfb'],
+        [2, '#cddbf7'],
+        [3, '#b5c9f3'],
+        [4, '#9cb7ef'],
+        [5, '#84a5eb'],
+        [6, '#6b93e7'],
+        [7, '#5281e3'],
+        [8, '#3a6fdf']
       ]
     },
     'fill-opacity': 0.8
