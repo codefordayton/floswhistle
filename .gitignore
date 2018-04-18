@@ -56,7 +56,7 @@ typings/
 .yarn.lock
 
 # dotenv environment variables file
-
+.DS_Store
 package-lock.json
 public/styles/*
 public/fonts/*
