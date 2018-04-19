@@ -1,11 +1,16 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import 'mapbox-gl/dist/mapbox-gl.css';
+
+import Header from './views/Header';
+
 
 const Root = (props) => (
-  <BrowserRouter>
-    {props.children}
-  </BrowserRouter>
+    <div className="page">
+        <Header />
+        <BrowserRouter>
+            {props.children}
+        </BrowserRouter>
+    </div>
 );
 
 export default Root;

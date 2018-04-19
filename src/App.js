@@ -7,14 +7,15 @@ import HomePage from './views/HomePage/';
 import ThankYouPage from './views/ThankYouPage/';
 import MapPage from './views/MapPage';
 
+
 const App = () => (
-  <Root>
-    <Fragment>
-      <Route exact path="/" component={HomePage} />
-      <Route exact path="/thank-you" component={ThankYouPage} />
-      <Route exact path="/map" component={MapPage} />
-    </Fragment>
-  </Root>
+    <Root>
+        <Fragment>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/thank-you" component={ThankYouPage} />
+            <Route exact path="/map" component={MapPage} />
+        </Fragment>
+    </Root>
 );
 
 export default App;
