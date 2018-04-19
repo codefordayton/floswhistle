@@ -1,6 +1,13 @@
+html {
+    background-color: $color-blue;
+}
+
+body {
+    background-color: $color-background;
+    color: $color-text;
+}
+
 body, html {
-    background-color: $color-red;
-    color: $color-gray-95;
     height: 100%;
     margin: 0;
     min-height: 100%;
