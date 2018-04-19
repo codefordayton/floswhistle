@@ -9,14 +9,9 @@
         height: 350px;
 
         a {
-            background: $color-blue;
-            border-radius: 3px;
-            color: $color-white;
-            display: inline-block;
-            margin: 1.0em;
-            padding: 1.0em;
-            text-decoration: none;
-            text-transform: uppercase;
+            @extend .button;
+            background-color: $color-blue;
+            margin: 0.5em;
         }
     }
 

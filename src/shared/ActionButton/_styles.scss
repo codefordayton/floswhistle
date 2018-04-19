@@ -3,13 +3,7 @@
     text-align: center;
 
     .button {
-        background: $color-red;
-        border-radius: 3px;
-        color: $color-white;
-        display: inline-block;
-        max-width: 50%;
-        padding: 0.5em;
-        text-decoration: none;
-        text-transform: uppercase;
+        @extend .button;
+        background-color: $color-red;
     }
 }

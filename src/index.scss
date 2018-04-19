@@ -5,11 +5,12 @@
 @import 'mapbox-gl/dist/mapbox-gl';
 
 // Defaults
-@import 'defaults/colors';
-@import 'defaults/tags';
-@import 'defaults/typography';
+@import './defaults/colors';
+@import './defaults/tags';
+@import './defaults/typography';
 
 // Components
+@import './defaults/button';
 @import './shared/ActionButton/_styles';
 @import './shared/Header/_styles';
 
