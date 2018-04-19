@@ -1,0 +1,13 @@
+#app, .page {
+    height: 100%;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+}
+
+.routepage {
+    background-color: $color-background;
+    flex: 1;
+}

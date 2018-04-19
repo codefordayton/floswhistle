@@ -1,5 +1,6 @@
 .ReportPledgePage {
-    min-height: 100vh;
+    @extend .routepage;
+
     padding: 1.0em;
     padding-top: 0;
 

@@ -16,7 +16,7 @@ const App = () => (
             <Route exact path="/" component={HomePage} />
             <Route exact path="/pledge" component={ReportPledgePage} />
             <Route exact path="/report" component={ReportFormPage} />
-            <Route exact path="/thank-you" component={ThankYouPage} />
+            <Route exact path="/thanks" component={ThankYouPage} />
             <Route exact path="/map" component={MapPage} />
         </Fragment>
     </Root>

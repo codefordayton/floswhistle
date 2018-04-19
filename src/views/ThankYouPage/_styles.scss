@@ -1,0 +1,11 @@
+.ThankYouPage {
+    background-color: $color-blue-dark;
+    color: $color-white;
+    flex: 1;
+    padding: 1.0em;
+    padding-bottom: 2.0em;
+
+    .buttons {
+        text-align: center;
+    }
+}

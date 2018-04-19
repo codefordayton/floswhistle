@@ -1,4 +1,5 @@
 .ReportFormPage {
+    @extend .routepage;
 
     fieldset {
         border: none;
