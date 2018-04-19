@@ -2,10 +2,12 @@
     padding-bottom: 2.0em;
     text-align: center;
 
-    a {
+    .button {
         background: $color-red;
         border-radius: 3px;
         color: $color-white;
+        display: inline-block;
+        max-width: 50%;
         padding: 0.5em;
         text-decoration: none;
         text-transform: uppercase;

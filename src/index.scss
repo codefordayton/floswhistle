@@ -10,8 +10,8 @@
 @import 'defaults/typography';
 
 // Components
-@import './views/ActionButton/_styles';
-@import './views/Header/_styles';
+@import './shared/ActionButton/_styles';
+@import './shared/Header/_styles';
 
 // Pages
 @import './views/HomePage/_styles';

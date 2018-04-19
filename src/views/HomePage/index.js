@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import ActionButton from '../ActionButton';
+import ActionButton from 'shared/ActionButton';
 
 
 const HomePage = props => {

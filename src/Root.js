@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import Header from './views/Header';
+import Header from 'shared/Header';
 
 
 const Root = (props) => (
