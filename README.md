@@ -5,19 +5,18 @@ when staffing levels are low and pose a danger to patients.
 
 Project Lead: Janet Michaelis
 
-## Setup
-### Create an account over at [Mapbox](https://www.mapbox.com/)
-- Once you have an account, head over to https://www.mapbox.com/account/
-- Copy the access token (default public token) and paste it in the browser
-- for example: localhost:3000/maps/?access_token=pk.?????????????
-- We will figure out a better solution for this soon..
+Please join the #floswhistle channel on the http://opendayton.org slack workspace to chat
+about the project and coordinate.
 
 ## Develop
 ### Application
-The application is a React application that utilizes Sass for styling. To work on this application, cd into the app directory and run npm install and npm start.
+The application is a React application that utilizes Sass for styling. To work on
+this application, cd into the app directory and run npm install and npm start.
+
+The page level components are stored in src/views. Shared components are stored
+in src/shared. Some default styling is stored in the files in src/defaults, but
+most page/component specific styles are stored with their JavaScript definitions.
 
 ### API
-TBD
-
-### WWW - Website
-TBD
+See: https://github.com/codefordayton/floswhistle-api
+and https://api.floswhistle.org
