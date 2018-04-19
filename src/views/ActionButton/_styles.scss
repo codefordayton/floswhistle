@@ -1,0 +1,13 @@
+.ActionButton {
+    padding-bottom: 2.0em;
+    text-align: center;
+
+    a {
+        background: $color-red;
+        border-radius: 3px;
+        color: $color-white;
+        padding: 0.5em;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+}

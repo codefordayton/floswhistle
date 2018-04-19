@@ -1,4 +1,25 @@
 .HomePage {
-    border: 1px solid red;
-    padding: 1.0em;
+
+    .Hero {
+        align-items: center;
+        background: $color-blue-dark url('/images/nurse.png') center left no-repeat;
+        background-size: contain;
+        display: flex;
+        flex-direction: row-reverse;
+        height: 350px;
+
+        a {
+            background: $color-blue;
+            border-radius: 3px;
+            color: $color-white;
+            margin: 1.0em;
+            padding: 1.0em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+
+    .content {
+        margin: 1.0em;
+    }
 }
