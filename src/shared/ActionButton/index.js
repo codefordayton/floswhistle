@@ -8,7 +8,7 @@ const ActionButton = props => {
             <p>
                 Take action...
             </p>
-            <Link className="button" to="/report">
+            <Link className="button" to="/pledge">
                 Flag a Dangerous Instance
             </Link>
 		</div>

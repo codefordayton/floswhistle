@@ -1,9 +1,10 @@
 import React from 'react';
 
+
 const Header = () => {
     return (
         <div className="Header">
-            <img src="/images/floswhistle.png" alt="Flos Whistle" />
+            <a href="/"><img src="/images/floswhistle.png" alt="Flos Whistle"/></a>
         </div>
     );
 };

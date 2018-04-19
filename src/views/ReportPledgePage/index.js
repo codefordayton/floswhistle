@@ -16,7 +16,7 @@ const ReportPledgePage = props => {
 			</p>
 
 			<div className="agreement-button">
-				<Link className="button" to="/">I Agree</Link>
+				<Link className="button" to="/report">I Agree</Link>
 			</div>
 
 		</div>
