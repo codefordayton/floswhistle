@@ -37,6 +37,7 @@
     "react-map-gl": "^3.2.5",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.0",
+    "react-select": "^1.2.1",
     "react-simple-maps": "^0.12.0",
     "recompose": "^0.26.0",
     "topojson-server": "^3.0.0"
