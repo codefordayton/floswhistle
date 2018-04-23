@@ -18,7 +18,7 @@ const HomePage = props => {
 				due to inadequate staffing.  Reports will be aggregated and
 				shown on a US map. This year-long, prospective, experimental
 				data-collection project will help us all better understand
-				the magnitude of the inadequate nurse staffing problem.
+				the magnitude of staffing-related dangers.
 				</p>
 
 				<p>

@@ -6,4 +6,8 @@
         @extend .button;
         background-color: $color-red;
     }
+
+    p {
+        padding: 0 0.5em;
+    }
 }

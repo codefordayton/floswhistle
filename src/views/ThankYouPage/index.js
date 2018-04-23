@@ -7,8 +7,8 @@ const ThankYouPage = props => {
 		<div className="ThankYouPage">
 			<h1>Thank You</h1>
 			<p>
-				sed quia non numquam eius modi tempora incidunt
-				ut labore et dolore magnam aliquam quaerat
+				Thank you for contributing to Flo’s Whistle. Please
+                share this project with your colleagues.
 			</p>
 
 			<div className="socials">

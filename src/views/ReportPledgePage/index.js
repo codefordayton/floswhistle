@@ -38,12 +38,14 @@ class ReportPledgePage extends React.Component {
 					value={this.state.typeSelection}
 				/>
 				<p>
-					This is a pledge-common practice online in
-					the medical field. It's a form where the user
-					swears that they are a currently working
-					professional caregiver and were on duty at the
-					facility at the time of the incident they are
-					about to report.
+					By agreeing to this statement and submitting
+					information to Flo’s Whistle, I swear that I am a
+					state licensed/certified care provider as indicated
+					above. I am currently employed in the facility
+					where this instance occurred and was present for
+					the period of time I am reporting. In my professional
+					opinion, a lack of appropriate staff created unacceptably
+					dangerous conditions for the patients.
 				</p>
 
 				<div className="agreement-button">

@@ -26,41 +26,45 @@ class ReportFormPage extends React.Component {
 		return (
 			<div className="ReportFormPage">
 
-				<div className="submit-button">
-					<form>
-						<fieldset>
-							<label htmlFor="startdate">Start Date:</label>
-							<input type="date" name="startdate"/>
-						</fieldset>
-						<fieldset>
-							<label htmlFor="starttime">Start Time:</label>
-							<input type="text" name="starttime"/>
-						</fieldset>
+				<p>
+				Reports limited to past 24hrs and only 1 report in 24hr
+				period. ZIP CODE will be converted to
+				CONGRESSIONAL DISTRICT for location display
+				purposes.
+				</p>
 
-						<fieldset>
-							<label htmlFor="enddate">End Date:</label>
-							<input type="date" name="enddate"/>
-						</fieldset>
-						<fieldset>
-							<label htmlFor="endtime">End Time:</label>
-							<input type="text" name="starttime"/>
-						</fieldset>
+				<form>
+					<fieldset>
+						<label htmlFor="locationtype">Facility Type:</label>
+						<input type="text" name="locationtype"/>
+					</fieldset>
 
-						<fieldset>
-							<label htmlFor="locationtype">Type of location:</label>
-							<input type="text" name="locationtype"/>
-						</fieldset>
+					<fieldset>
+						<label htmlFor="zipcode">Facility Zip Code:</label>
+						<input type="text" name="zipcode"/>
+					</fieldset>
 
-						<fieldset>
-							<label htmlFor="zipcode">Zip Code:</label>
-							<input type="text" name="zipcode"/>
-						</fieldset>
-					</form>
+					<fieldset>
+						<label htmlFor="startdate">Start Date:</label>
+						<input type="date" name="startdate"/>
+					</fieldset>
+					<fieldset>
+						<label htmlFor="starttime">Start Time:</label>
+						<input type="text" name="starttime"/>
+					</fieldset>
 
-					<div className="buttons">
-						<a className="button" onClick={this.handleReport}>Submit</a>
-					</div>
+					<fieldset>
+						<label htmlFor="enddate">End Date:</label>
+						<input type="date" name="enddate"/>
+					</fieldset>
+					<fieldset>
+						<label htmlFor="endtime">End Time:</label>
+						<input type="text" name="starttime"/>
+					</fieldset>
+				</form>
 
+				<div className="buttons">
+					<a className="button" onClick={this.handleReport}>Submit</a>
 				</div>
 			</div>
 		);
