@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "url": "http://www.floswhistle.com",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/codefordayton/floswhistle.git"
+  },
   "scripts": {
     "start:js": "react-app-rewired start",
     "start": "npm-run-all -p watch:sass start:js",
@@ -15,7 +20,9 @@
     "sass": "node-sass --source-map true --include-path src --include-path node_modules src/index.scss public/styles/bundle.css",
     "postsass": "postcss public/styles/bundle.css -c postcss.config.js -o public/styles/bundle.min.css",
     "watch:sass": "nodemon -e scss -w src -x \"npm run sass\"",
-    "geo2topo": "geo2topo"
+    "version": "node tools/version.js",
+    "predeploy2": "npm-run-all sass build version",
+    "deploy": "node tools/sync2s3.js"
   },
   "author": "Code for Dayton",
   "license": "MIT",
@@ -43,6 +50,10 @@
     "topojson-server": "^3.0.0"
   },
   "devDependencies": {
-    "react-app-rewired": "^1.5.0"
+    "aws-sdk": "^2.226.1",
+    "mime": "^2.3.1",
+    "moment": "^2.22.1",
+    "react-app-rewired": "^1.5.0",
+    "sync-exec": "^0.6.2"
   }
 }
