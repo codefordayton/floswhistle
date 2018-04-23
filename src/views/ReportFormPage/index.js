@@ -1,19 +1,41 @@
 import React from 'react';
+import Select from 'react-select';
+import moment from 'moment';
 
+
+const FACILITY_TYPE_OPTIONS = [
+	{ value: 'hospital', label: 'Hospital' },
+	{ value: 'long_term_care', label: 'Nursing Home/LTAC/LTCH'}
+];
+
+const SHIFT_OPTIONS = [
+	{ value: 'day', label: 'Day' },
+	{ value: 'night', label: 'Night' }
+]
 
 class ReportFormPage extends React.Component {
 	constructor(props) {
 		super(props);
+
+		let today = moment().format('MM/DD/YYYY');
+
 		this.state = {
-			value: ''
+			facilityType: 'hospital',
+			report_date: today,
+			'shift': 'day',
+			zip: ''
 		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleReport = this.handleReport.bind(this);
 	}
 
-	handleChange(event) {
-		this.setState({value: event.target.value});
+	handleChange(property, value) {
+		let changes = {};
+		changes[property] = value;
+		this.setState(changes, () => {
+			console.log('New state: ' + JSON.stringify(this.state));
+		});
 	}
 
 	handleReport(event) {
@@ -23,6 +45,16 @@ class ReportFormPage extends React.Component {
 	}
 
 	render() {
+
+		let today = moment().format('MM/DD/YYYY');
+		let yesterday = moment().subtract(1, 'day').format('MM/DD/YYYY');
+
+		let dateOptions = [
+			{value: today, label: today},
+			{value: yesterday, label: yesterday}
+		];
+		//console.log('Date Options: ' + JSON.stringify(dateOptions));
+
 		return (
 			<div className="ReportFormPage">
 
@@ -36,30 +68,50 @@ class ReportFormPage extends React.Component {
 				<form>
 					<fieldset>
 						<label htmlFor="locationtype">Facility Type:</label>
-						<input type="text" name="locationtype"/>
+						<Select
+							onChange={(newVal) => {
+								this.handleChange('facilityType', newVal);
+							}}
+							options={FACILITY_TYPE_OPTIONS}
+							simpleValue
+							clearable={false}
+							searchable={false}
+							value={this.state.facilityType} />
 					</fieldset>
 
 					<fieldset>
-						<label htmlFor="zipcode">Facility Zip Code:</label>
-						<input type="text" name="zipcode"/>
+						<label htmlFor="zip">Facility Zip Code:</label>
+						<input type="text"
+							name="zip"
+							value={this.state.zip}
+							onChange={(evt) => {
+								this.handleChange('zip', evt.target.value);
+							}} />
 					</fieldset>
 
 					<fieldset>
-						<label htmlFor="startdate">Start Date:</label>
-						<input type="date" name="startdate"/>
+						<label htmlFor="report_date">Day:</label>
+						<Select
+							onChange={(newVal) => {
+								this.handleChange('report_date', newVal);
+							}}
+							options={dateOptions}
+							simpleValue
+							clearable={false}
+							searchable={false}
+							value={this.state.report_date} />
 					</fieldset>
 					<fieldset>
-						<label htmlFor="starttime">Start Time:</label>
-						<input type="text" name="starttime"/>
-					</fieldset>
-
-					<fieldset>
-						<label htmlFor="enddate">End Date:</label>
-						<input type="date" name="enddate"/>
-					</fieldset>
-					<fieldset>
-						<label htmlFor="endtime">End Time:</label>
-						<input type="text" name="starttime"/>
+						<label htmlFor="shift">Shift:</label>
+						<Select
+							onChange={(newVal) => {
+								this.handleChange('shift', newVal);
+							}}
+							options={SHIFT_OPTIONS}
+							simpleValue
+							clearable={false}
+							searchable={false}
+							value={this.state['shift']} />
 					</fieldset>
 				</form>
 

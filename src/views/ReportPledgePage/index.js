@@ -3,18 +3,19 @@ import { Link } from 'react-router-dom';
 import Select from 'react-select';
 
 
+const TYPE_OPTIONS = [
+    { value: 'rn', label: 'RN' },
+    { value: 'lpn', label: 'LPN' },
+    { value: 'cna', label: 'CPCT/CNA'}
+];
+
 class ReportPledgePage extends React.Component {
 
 	constructor(props, context) {
 		super(props, context);
 
 		this.state = {
-			TypeOptions: [
-				{ value: 'RN', label: 'RN' },
-				{ value: 'LPN', label: 'LPN' },
-				{ value: 'CPCT/CNA', label: 'CPCT/CNA'}
-			],
-			typeSelection: 'RN'
+			typeSelection: 'rn'
 		};
 
 		this.onTypeChange = this.onTypeChange.bind(this);
@@ -31,7 +32,7 @@ class ReportPledgePage extends React.Component {
 				<label>I am a: </label>
 				<Select
 					onChange={this.onTypeChange}
-					options={this.state.TypeOptions}
+					options={TYPE_OPTIONS}
 					simpleValue
 					clearable={false}
 					searchable={false}
