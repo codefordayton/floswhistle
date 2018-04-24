@@ -1,51 +1,16 @@
 import React, { Component } from 'react';
 import ReactMapGL from 'react-map-gl';
-import { fromJS } from 'immutable';
 
 // shared
 import geojson from 'shared/maps/geo.json';
-import getPropertiesFromStates from 'shared/utils/getPropertiesFromStates';
 import fetchData from 'shared/utils/fetchData';
 
 // local
-import { defaultMapStyle, dataLayer } from './map-style';
+import { defaultMapStyle } from './map-style';
+import generateMapStyle from './generateMapStyle';
+import getData from './getData';
 
 const MAPBOX_TOKEN = 'pk.eyJ1Ijoia3loeWNvIiwiYSI6ImNqZmFjNTB3NzJpb2EyeHA0dmtlM2lyc3AifQ.kpFhZDngym9schJW_E9gBg'; // Set your mapbox token here
-
-const generateMapStyle = data => {
-  const mapStyle = defaultMapStyle
-  // Add geojson source to map
-    .setIn(['sources', 'floswhistle'], fromJS({ type: 'geojson', data }))
-  // Add point layer to map
-    .set('layers', defaultMapStyle.get('layers').push(dataLayer));
-
-  return mapStyle;
-};
-
-const getData = ({ geojson, states, getPercentile, defaultValue = 0 }) => {
-  geojson.features = geojson.features.map(feature => {
-    const stateNum = feature.properties.STATE;
-    // state with only one district has no NAME property
-    // 00 indicates only one district exists in a state in above states variable
-    const districtNum = feature.properties.NAME === "" ? 0 : feature.properties.NAME;
-    const properties = getPropertiesFromStates(states, stateNum, districtNum);
-
-    const percentile = properties ? getPercentile(properties) : defaultValue;
-
-    return {
-      ...feature,
-      properties: {
-        ...feature.properties,
-        percentile,
-        // uncomment line below to use random data
-        // instead of real data
-        // percentile: Math.random(),
-      }
-    };
-  });
-
-  return geojson;
-};
 
 class ReactMapGl extends Component {
   state = {
