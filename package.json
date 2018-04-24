@@ -21,7 +21,7 @@
     "postsass": "postcss public/styles/bundle.css -c postcss.config.js -o public/styles/bundle.min.css",
     "watch:sass": "nodemon -e scss -w src -x \"npm run sass\"",
     "version": "node tools/version.js",
-    "predeploy2": "npm-run-all sass build version",
+    "predeploy": "npm-run-all sass build version",
     "deploy": "node tools/sync2s3.js"
   },
   "author": "Code for Dayton",
