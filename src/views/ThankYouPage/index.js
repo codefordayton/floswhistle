@@ -14,6 +14,7 @@ const ThankYouPage = props => {
 			<div className="socials">
 				<a href="https://www.facebook.com/flo.nightingale.3344"><i className="fa fa-facebook-f"></i></a>
 				<a href="https://twitter.com/F_NightingaleRN"><i className="fa fa-twitter"></i></a>
+				<a href="https://www.instagram.com/FloNightingaleRN/"><i className="fa fa-instagram"></i></a>
 			</div>
 
 			<div className="buttons">
