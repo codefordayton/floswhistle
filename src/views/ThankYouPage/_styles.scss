@@ -8,4 +8,18 @@
     .buttons {
         text-align: center;
     }
+
+    .socials {
+        margin-bottom: 1.0em;
+        padding: 1.0em;
+        text-align: center;
+
+        a {
+            color: $color-white;
+            font-size: 64px;
+            margin: 12px;
+            padding: 12px;
+            text-align: center;
+        }
+    }
 }
