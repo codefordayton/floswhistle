@@ -2,6 +2,10 @@ import React from 'react';
 import Select from 'react-select';
 import moment from 'moment';
 
+import Storage from '../../Storage';
+
+
+const API_ENDPOINT = 'https://api.floswhistle.com/v1/whistle';
 
 const FACILITY_TYPE_OPTIONS = [
 	{ value: 'hospital', label: 'Hospital' },
@@ -18,12 +22,13 @@ class ReportFormPage extends React.Component {
 		super(props);
 
 		let today = moment().format('MM/DD/YYYY');
-
+		let saved = Storage.getSavedValues();
 		this.state = {
-			facilityType: 'hospital',
+			reporter_type: saved.reporter_type,
+			facility_type: saved.facility_type,
 			report_date: today,
-			'shift': 'day',
-			zip: ''
+			'shift': saved['shift'],
+			zip: saved.zip
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -33,15 +38,22 @@ class ReportFormPage extends React.Component {
 	handleChange(property, value) {
 		let changes = {};
 		changes[property] = value;
-		this.setState(changes, () => {
-			console.log('New state: ' + JSON.stringify(this.state));
-		});
+		this.setState(changes);
+		Storage.updateValue(property, value);
 	}
 
 	handleReport(event) {
 		event.preventDefault();
-		console.log('Your zip code: ' + this.state.value);
-		window.location = '/thanks';
+		console.log('Submitting form with values: ' + JSON.stringify(this.state));
+		fetch(API_ENDPOINT, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(this.state)
+		}).then(response => {
+			window.location = '/thanks';
+		});
 	}
 
 	render() {
@@ -70,13 +82,13 @@ class ReportFormPage extends React.Component {
 						<label htmlFor="locationtype">Facility Type:</label>
 						<Select
 							onChange={(newVal) => {
-								this.handleChange('facilityType', newVal);
+								this.handleChange('facility_type', newVal);
 							}}
 							options={FACILITY_TYPE_OPTIONS}
 							simpleValue
 							clearable={false}
 							searchable={false}
-							value={this.state.facilityType} />
+							value={this.state.facility_type} />
 					</fieldset>
 
 					<fieldset>
