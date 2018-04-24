@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
 
+import Storage from '../../Storage';
+
 
 const TYPE_OPTIONS = [
     { value: 'rn', label: 'RN' },
@@ -14,8 +16,10 @@ class ReportPledgePage extends React.Component {
 	constructor(props, context) {
 		super(props, context);
 
+        let saved = Storage.getSavedValues();
+
 		this.state = {
-			typeSelection: 'rn'
+			typeSelection: saved.reporter_type
 		};
 
 		this.onTypeChange = this.onTypeChange.bind(this);
@@ -23,7 +27,7 @@ class ReportPledgePage extends React.Component {
 
 	onTypeChange(newType) {
 		this.setState({typeSelection: newType});
-		console.log('NewType: ' + newType);
+		Storage.updateValue('reporter_type', newType);
 	}
 
 	render() {
