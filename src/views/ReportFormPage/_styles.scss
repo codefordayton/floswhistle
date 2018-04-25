@@ -1,12 +1,15 @@
 .ReportFormPage {
     @extend .routepage;
 
+    max-width: 411px;
+    margin: 0 auto;
+
     fieldset {
         border: none;
     }
 
     input {
-        border: 2px solid $color-gray-70;
+        border: 1px solid #ccc;
         border-radius: 3px;
         display: block;
         padding: 0.25em 0.5em;
@@ -19,7 +22,7 @@
     }
 
     p {
-        padding: 0 0.5em;
+        padding: 0 1em;
     }
 
     .buttons {
@@ -44,4 +47,8 @@
     border-top-left-radius: 0 !important;
     border-bottom-right-radius: 5px !important;
     border-bottom-left-radius: 5px !important;
+}
+
+.textInput {
+  width: 100%;
 }

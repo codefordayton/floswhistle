@@ -104,12 +104,15 @@ class ReportFormPage extends React.Component {
 
           <fieldset>
             <label htmlFor="zip">Facility Zip Code:</label>
-            <input type="text"
-              name="zip"
-              value={this.state.zip}
-              onChange={(evt) => {
-                this.handleChange('zip', evt.target.value);
-              }} />
+            <div>
+              <input type="text"
+                className="textInput"
+                name="zip"
+                value={this.state.zip}
+                onChange={(evt) => {
+                  this.handleChange('zip', evt.target.value);
+                }} />
+            </div>
           </fieldset>
 
           <fieldset>
