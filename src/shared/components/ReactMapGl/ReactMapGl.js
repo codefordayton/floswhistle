@@ -31,7 +31,6 @@ class ReactMapGl extends Component {
       // Adjust getPercentile to determine what percentage you want
       function getPercentile({
         facility_type: { extended_care, hospital, long_term_care, },
-        shift: { day, mid, night, },
         type: { cna, lpn, other, rn, total },
       }) {
         return Math.floor(Math.random() * 100);
