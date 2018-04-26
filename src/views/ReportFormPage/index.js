@@ -55,14 +55,14 @@ class ReportFormPage extends React.Component {
   handleReport(event) {
     event.preventDefault();
 
-    const body = formatBody(this.state);
+    const body = JSON.stringify(formatBody(this.state));
 
     fetch(API_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body,
+      body
     }).then(response => {
       window.location = '/thanks';
     });
