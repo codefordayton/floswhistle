@@ -62,3 +62,7 @@ public/styles/*
 public/fonts/*
 build/*
 aws.sh
+
+#IntelliJ
+.idea/
+*.iml

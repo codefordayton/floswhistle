@@ -15,7 +15,7 @@
     "prebuild": "npm-run-all sass",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
-    "copyfa": "mkdir -p public/fonts && cp -R node_modules/font-awesome/fonts/* public/fonts",
+    "copyfa": "bash ./copyfa.sh",
     "presass": "npm run copyfa",
     "sass": "node-sass --source-map true --include-path src --include-path node_modules src/index.scss public/styles/bundle.css",
     "postsass": "postcss public/styles/bundle.css -c postcss.config.js -o public/styles/bundle.min.css",

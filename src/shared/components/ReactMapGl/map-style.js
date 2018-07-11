@@ -1,6 +1,17 @@
 import {fromJS} from 'immutable';
 import MAP_STYLE from './map-style.json';
 
+function interpColors(numColors) {
+  let stops = [];
+  for (let i=numColors; i>0; i--) {
+    let c = (Math.round((numColors/255) * i * 255)).toString(16);
+    stops.push([numColors-i,'#'+c+c+(c.length===2?'ff':'f')])
+  }
+  return stops
+}
+
+console.log(interpColors(10));
+
 // For more information on data-driven styles, see https://www.mapbox.com/help/gl-dds-ref/
 export const dataLayer = fromJS({
   id: 'data',
@@ -10,10 +21,7 @@ export const dataLayer = fromJS({
   paint: {
     'fill-color': {
       property: 'percentile',
-      stops: [
-        [0, '#FFFFFF'],
-        [1, '#3a6fdf']
-      ]
+      stops: interpColors(10)
     },
     'fill-opacity': 0.8
   }

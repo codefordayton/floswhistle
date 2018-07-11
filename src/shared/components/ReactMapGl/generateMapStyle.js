@@ -2,6 +2,7 @@ import { fromJS } from 'immutable';
 import { defaultMapStyle, dataLayer } from './map-style';
 
 const generateMapStyle = data => {
+  console.log(dataLayer)
   const mapStyle = defaultMapStyle
   // Add geojson source to map
     .setIn(['sources', 'floswhistle'], fromJS({ type: 'geojson', data }))
