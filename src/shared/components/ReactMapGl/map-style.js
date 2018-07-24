@@ -1,11 +1,21 @@
 import {fromJS} from 'immutable';
 import MAP_STYLE from './map-style.json';
 
-function interpColors(numColors) {
+//ff ff ff
+function interpolateColors(shadesOfBlue) {
   let stops = [];
-  for (let i=numColors; i>0; i--) {
-    let c = (Math.round((numColors/255) * i * 255)).toString(16);
-    stops.push([numColors-i,'#'+c+c+(c.length===2?'ff':'f')])
+  //e.g. for shadesOfBlue = 10...
+  for (let i=shadesOfBlue; i>0; i--) {
+    //we have 1, 0.9, 0.8, 0.7...
+    let colorStepRatio = i/shadesOfBlue;
+    if(i===shadesOfBlue) {
+      console.assert(colorStepRatio === 1);
+    }
+    let gradient = Math.round(colorStepRatio * 255);
+    //not in love with this but
+    let colorHex = gradient.toString(16);
+    let colorHexValue='#'+colorHex+colorHex+(colorHex.length===2?'ff':'f');
+    stops.push([shadesOfBlue-i,colorHexValue])
   }
   return stops
 }
@@ -19,7 +29,7 @@ export const dataLayer = fromJS({
   paint: {
     'fill-color': {
       property: 'percentile',
-      stops: interpColors(10)
+      stops: interpolateColors(10)
     },
     'fill-opacity': 0.8
   }
