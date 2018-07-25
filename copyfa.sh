@@ -1,0 +1,1 @@
+mkdir -p public/fonts && cp -R node_modules/font-awesome/fonts/* public/fonts

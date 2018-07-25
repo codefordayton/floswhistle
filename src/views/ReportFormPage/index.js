@@ -5,8 +5,8 @@ import getTimeStops from 'shared/utils/getTimeStops';
 
 import Storage from '../../Storage';
 
-
 const API_ENDPOINT = 'https://api.floswhistle.com/v1/whistle';
+// const API_ENDPOINT = 'http://localhost:8080/v1/whistle';
 
 const FACILITY_TYPE_OPTIONS = [
   { value: 'hospital', label: 'Hospital' },
