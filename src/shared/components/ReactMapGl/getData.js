@@ -1,6 +1,6 @@
 import getPropertiesFromStates from 'shared/utils/getPropertiesFromStates';
 
-const getData = ({ geojson, states, getPercentile, defaultValue = 0 }) => {
+const getData = ({ geojson, states, metadata, getPercentile, defaultValue = 0 }) => {
   geojson.features = geojson.features.map(feature => {
     const stateNum = feature.properties.STATE;
     // state with only one district has no NAME property
@@ -8,7 +8,7 @@ const getData = ({ geojson, states, getPercentile, defaultValue = 0 }) => {
     const districtNum = feature.properties.NAME === "" ? 0 : feature.properties.NAME;
     const properties = getPropertiesFromStates(states, stateNum, districtNum);
 
-    const percentile = properties ? getPercentile(properties) : defaultValue;
+    const percentile = properties ? getPercentile(properties, metadata) : defaultValue;
 
     return {
       ...feature,

@@ -27,18 +27,20 @@ class ReactMapGl extends Component {
   };
 
   _loadData = () => {
-    fetchData(({ states }) => {
+    fetchData(({ states, min_count, max_count }) => {
       // Adjust getPercentile to determine what percentage you want
       function getPercentile({
         facility_type: { extended_care, hospital, long_term_care, },
-        type: { cna, lpn, other, rn, total },
-      }) {
-        return Math.floor(Math.random() * 100);
+        type: { cna, lpn, other, rn, total }},
+        metadata
+      ) {
+        return total / metadata.maxCount * 100;
       }
-
+      let metadata = { minCount: min_count, maxCount: max_count };
       const data = getData({
         geojson,
         states,
+        metadata,
         getPercentile,
         defaultValue: 0,
       });
