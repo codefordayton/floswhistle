@@ -1,0 +1,38 @@
+.districtInfo p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: .8em;
+}
+
+.header {
+  margin-bottom: 12px;
+}
+
+.socialIcon {
+  max-width: 36px;
+  margin: 12px;
+  margin-bottom: 0;
+}
+
+.socialIcon:first-child {
+  margin-left: 0;
+}
+
+p.whistleTotals {
+  font-style: italic;
+  font-size: 1em;
+  margin-bottom: 12px;
+}
+
+.statsHeader {
+  font-style: italic;
+}
+
+.statsEntry {
+  margin-left: 12px;
+  font-size: .5em;
+}
+
+.statsEntry:last-child {
+  margin-bottom: 16px;
+}
