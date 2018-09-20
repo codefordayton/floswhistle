@@ -1,4 +1,5 @@
 import getPropertiesFromStates from 'shared/utils/getPropertiesFromStates';
+import numToAbbr from 'shared/utils/numToAbbr';
 
 const getData = ({ geojson, states, getPercentile, defaultValue = 0 }) => {
   geojson.features = geojson.features.map(feature => {
@@ -7,17 +8,16 @@ const getData = ({ geojson, states, getPercentile, defaultValue = 0 }) => {
     // 00 indicates only one district exists in a state in above states variable
     const districtNum = feature.properties.NAME === "" ? 0 : feature.properties.NAME;
     const properties = getPropertiesFromStates(states, stateNum, districtNum);
-
-    const percentile = properties ? getPercentile(properties) : defaultValue;
+    const abbr = numToAbbr(stateNum);
+    const percentile = properties ? getPercentile(properties, metadata) : defaultValue;
 
     return {
       ...feature,
       properties: {
         ...feature.properties,
         percentile,
-        // uncomment line below to use random data
-        // instead of real data
-        // percentile: Math.random(),
+        stats: properties,
+        stateAbbr: abbr
       }
     };
   });

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, { Popup } from 'react-map-gl';
+
+import DistrictInfo from '../DistrictInfo/DistrictInfo';
 
 // shared
 import geojson from 'shared/maps/geo.json';
@@ -23,7 +25,8 @@ class ReactMapGl extends Component {
       bearing: 0,
       pitch: 0,
       zoom: 3,
-    }
+    },
+    popupInfo: null
   };
 
   _loadData = () => {
@@ -68,6 +71,30 @@ class ReactMapGl extends Component {
     window.removeEventListener('resize', this._resize);
   }
 
+  _renderPopup() {
+
+    const {popupInfo, latitude, longitude} = this.state;
+    
+    return popupInfo && (
+      <Popup tipSize={5}
+        anchor="top"
+        latitude={latitude}
+        longitude={longitude}
+        captureClick={true}
+        onClose={() => this.setState({popupInfo: null})} >
+        <DistrictInfo info={popupInfo} />
+      </Popup>
+    );
+  }
+
+  _onClick = event => {
+    const {features} = event;
+    const popupInfo = features && features.find(f => f.layer.id === 'data');
+    this.setState({popupInfo,
+                   latitude: event.lngLat[1],
+                   longitude: event.lngLat[0]});
+  };
+
   render() {
     return (
       <ReactMapGL
@@ -75,8 +102,12 @@ class ReactMapGl extends Component {
         mapStyle={this.state.mapStyle}
         mapboxApiAccessToken={MAPBOX_TOKEN}
         onLoad={this._loadData}
-        onViewportChange={(viewport) => this.setState({viewport})}
-      />
+        onClick={this._onClick}
+        onViewportChange={(viewport) => this.setState({viewport})}>
+
+        {this._renderPopup()}
+
+      </ReactMapGL>      
     );
   }
 }
